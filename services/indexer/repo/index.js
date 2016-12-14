@@ -19,6 +19,127 @@ const ES_PARAMS = {
   "esSettings": ES_SETTINGS
 };
 
+/* begin get events */
+function getevents(gitrepository){
+  var eventsurl,returnevents, eventsfeed,eventsinventory,body, eventsfeed_header,eventsfeed_start,
+      eventsfeed_projects,eventsfeed_updated, eventsfeed, limit, stuff;
+  
+  limit = 6;
+  if (!gitrepository.includes("github.com")){
+    return "";
+  }
+  eventsurl = gitrepository.replace("git://github.com/","https://api.github.com/repos/");
+ 
+  eventsurl = eventsurl.substr(0, eventsurl.length-4);
+  eventsurl+="/events";
+  console.log("eventsurl: "+eventsurl); 
+  //console.log(eventsurl+"?client_id="+process.env.CLIENTID+"&client_secret="+process.env.CLIENTSECRET);
+  var options = {
+  url: eventsurl+"?client_id="+process.env.CLIENTID+"&client_secret="+process.env.CLIENTSECRET,
+  headers: {
+    'User-Agent': 'request',
+    'Accept': 'application/vnd.github.full+json'
+    
+  }
+    
+  
+};
+  
+
+
+   
+   
+  function callback(error, response, body)
+{
+  //console.log("length: "+body.length);
+  
+    eventsinventory = JSON.parse(body);
+  
+    if (eventsinventory==undefined){ 
+      eventsinventory = JSON.parse(body);
+    }
+  
+   eventsfeed_projects = '';
+    eventsfeed_updated='';
+   eventsfeed_header ="export const EVENTS = ";
+    eventsfeed_start = "[";
+  if (eventsinventory[0]==undefined) {return "";}
+console.log("first type:"+eventsinventory[0].type);
+    for (var i = 0; i < Math.min(limit,eventsinventory.length); i++) {
+      
+
+      eventsfeed_projects +=
+        "{\"id\": \""+eventsinventory[i].repo.id +"\",\"name\": \"" + eventsinventory[i].repo.name + "\",\"type\":\"" +
+        (eventsinventory[i].type).replace("Event","") + "\",\"user\":\"" + eventsinventory[i].actor.display_login +
+        "\",\"time\": \"" + eventsinventory[i].created_at +"\"";
+
+      //loop through type of event
+      if (eventsinventory[i].type == "PushEvent")
+
+      {
+        
+          eventsfeed_projects += ",\"message\": \""+eventsinventory[i].payload.commits[0].message+"\", \"url\":\""+eventsinventory[i].payload.commits[0].url+"\"";
+
+
+       
+      }
+      else if (eventsinventory[i].type == "PullRequestEvent")
+
+      {
+        
+          eventsfeed_projects += ",\"message\": \""+eventsinventory[i].payload.pull_request.title+"\", \"url\":\""+eventsinventory[i].payload.pull_request.url+"\"";
+
+
+       
+      }
+      else if (eventsinventory[i].type == "IssueCommentEvent")
+
+      {
+        
+          eventsfeed_projects += ",\"message\": \""+eventsinventory[i].payload.issue.title+"\", \"url\":\""+eventsinventory[i].payload.issue.url+"\"";
+       
+      }
+eventsfeed_projects += "}";
+      
+        if (i + 1 < Math.min(limit,eventsinventory.length)) {
+        eventsfeed_projects += ',';
+      }
+    }
+      
+    eventsfeed = eventsfeed_start + eventsfeed_projects + ']';
+  
+  
+  return eventsinventory;
+}
+  request(options, callback);
+
+  
+  console.log(eventsfeed);
+return eventsfeed;
+}
+/* end get events */
+
+/* begin get repoURL */
+function getrepoURL(gitrepository){
+  var repoURL;
+  
+  if (!gitrepository.includes("github.com")){
+    return "";
+  }
+  repoURL = gitrepository.replace("git://","https://");
+ 
+  repoURL = repoURL.substr(0, repoURL.length-4);
+  
+  
+  
+return repoURL;
+}
+/* end get repoURL */
+
+
+
+
+
 class AgencyJsonStream extends Transform {
 
   constructor(repoIndexer) {
@@ -64,6 +185,11 @@ class AgencyJsonStream extends Transform {
       if (agencyData.projects && agencyData.projects.length) {
         agencyData.projects.forEach((project) => {
           project.agency = agencyData.agency;
+          //console.log("repository is: "+project.repository)
+          project.repoURL = getrepoURL(project.repository);
+         // project.events = getevents(project.repository);
+          
+          
           this.push(project);
         });
       }

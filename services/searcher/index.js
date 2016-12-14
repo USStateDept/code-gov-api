@@ -120,6 +120,7 @@ class Searcher {
       this._addMatchForFullText(ftBody, q, "partners.email._fulltext", 4);
       this._addMatchForFullText(ftBody, q, "contact.twitter._fulltext", 4);
       this._addMatchForFullText(ftBody, q, "license._fulltext", 4);
+      
 
       body.query("bool", "must", ftBody.build());
     }

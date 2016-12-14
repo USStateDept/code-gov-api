@@ -31,6 +31,43 @@
         "type": "string",
         "index": "not_analyzed"
       },
+      "repoURL": {
+        "type": "string",
+        "index": "not_analyzed"
+      },
+      "events": {
+        "type": "nested",
+        "properties": {
+          "id": {
+            "type": "string",
+            "analyzer": "keyword_ci"
+          },
+           "name": {
+            "type": "string",
+            "analyzer": "keyword_ci"
+          },
+           "type": {
+            "type": "string",
+            "analyzer": "keyword_ci"
+          },
+           "user": {
+            "type": "string",
+            "analyzer": "keyword_ci"
+          },
+           "time": {
+            "type": "date",
+            "format": "strict_date_optional_time||epoch_millis"
+          },
+           "message": {
+            "type": "string",
+            "analyzer": "keyword_ci"
+          },
+           "url": {
+            "type": "string",
+            "analyzer": "keyword_ci"
+          }
+        }
+      },
       "homepage": {
         "type": "string",
         "analyzer": "keyword_ci"
