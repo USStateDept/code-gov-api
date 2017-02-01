@@ -30,7 +30,8 @@ class Reporter {
       this.report.statuses[itemName] = {
         status: "",
         issues: [],
-        version: "",
+        schemaVersion: "",
+        category: "",
         metadata: {}
       };
     }
@@ -47,10 +48,17 @@ class Reporter {
   }
 
 
-  reportVersion(itemName, version) {
+  reportSchemaVersion(itemName, schemaVersion) {
     this._createReportItemIfDoesntExist(itemName);
-    this.report.statuses[itemName]["version"] = version;
+    this.report.statuses[itemName]["schemaVersion"] = schemaVersion;
   }
+
+
+  reportCategory(itemName, category) {
+    this._createReportItemIfDoesntExist(itemName);
+    this.report.statuses[itemName]["category"] = category;
+  }
+
 
   reportMetadata(itemName, metadata) {
     this._createReportItemIfDoesntExist(itemName);

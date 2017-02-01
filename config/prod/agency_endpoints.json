@@ -2,144 +2,168 @@
   "id": 1,
   "name": "Department of Agriculture",
   "acronym": "USDA",
+  "category": "required",
   "website": "https://usda.gov/",
   "codeUrl": "https://www.usda.gov/code.json"
 }, {
   "id": 2,
   "name": "Department of Commerce",
   "acronym": "DOC",
+  "category": "required",
   "website": "https://www.commerce.gov/",
   "codeUrl": "https://www.commerce.gov/code.json"
 }, {
   "id": 3,
   "name": "Department of Defense",
   "acronym": "DOD",
+  "category": "required",
   "website": "https://www.defense.gov/",
   "codeUrl": "https://www.defense.gov/code.json"
 }, {
   "id": 4,
   "name": "Department of Education",
   "acronym": "ED",
+  "category": "required",
   "website": "http://www.ed.gov/",
   "codeUrl": "https://www2.ed.gov/code.json"
 }, {
   "id": 5,
   "name": "Department of Energy",
   "acronym": "DOE",
+  "category": "required",
   "website": "https://energy.gov/",
   "codeUrl": "https://energy.gov/code.json"
 }, {
   "id": 6,
   "name": "Department of Health and Human Services",
   "acronym": "HHS",
+  "category": "required",
   "website": "https://hhs.gov",
   "codeUrl": "https://hhs.gov/code.json"
 }, {
   "id": 7,
   "name": "Department of Housing and Urban Development",
   "acronym": "HUD",
+  "category": "required",
   "website": "https://www.hud.gov/",
   "codeUrl": "https://www.hud.gov/code.json"
 }, {
   "id": 8,
   "name": "Department of Interior",
   "acronym": "DOI",
+  "category": "required",
   "website": "https://data.doi.gov/",
   "codeUrl": "https://data.doi.gov/code.json"
 }, {
   "id": 9,
   "name": "Department of Justice",
   "acronym": "DOJ",
+  "category": "required",
   "website": "https://justice.gov",
   "codeUrl": "https://justice.gov/code.json"
 }, {
   "id": 10,
   "name": "Department of Labor",
   "acronym": "DOL",
+  "category": "required",
   "website": "https://www.dol.gov",
   "codeUrl": "https://www.dol.gov/code.json"
 }, {
   "id": 11,
   "name": "Department of State",
   "acronym": "DOS",
+  "category": "required",
   "website": "https://state.gov/",
   "codeUrl": "https://state.gov/code.json"
 }, {
   "id": 12,
   "name": "Department of Transportation",
   "acronym": "DOT",
+  "category": "required",
   "website": "https://www.transportation.gov/",
   "codeUrl": "https://www.transportation.gov/code.json"
 }, {
   "id": 13,
   "name": "Department of Treasury",
   "acronym": "TRE",
+  "category": "required",
   "website": "https://www.treasury.gov/",
   "codeUrl": "https://www.treasury.gov/code.json"
 }, {
   "id": 14,
   "name": "Department of Veterans Affairs",
   "acronym": "VA",
+  "category": "required",
   "website": "https://va.gov/",
   "codeUrl": "https://va.gov/code.json"
 }, {
   "id": 15,
   "name": "Environmental Protection Agency",
   "acronym": "EPA",
+  "category": "optional",
   "website": "https://epa.gov/",
   "codeUrl": "https://epa.gov/code.json"
 }, {
   "id": 16,
   "name": "National Aeronautics and Space Administration",
   "acronym": "NASA",
+  "category": "optional",
   "website": "https://nasa.gov/",
   "codeUrl": "https://code.nasa.gov/code.json"
 }, {
   "id": 17,
   "name": "Agency for International Development",
   "acronym": "AID",
+  "category": "optional",
   "website": "https://usaid.gov/",
   "codeUrl": "https://usaid.gov/code.json"
 }, {
   "id": 18,
   "name": "Federal Emergency Management Agency",
   "acronym": "FEMA",
+  "category": "optional",
   "website": "https://fema.gov/",
   "codeUrl": "https://fema.gov/code.json"
 }, {
   "id": 19,
   "name": "General Services Administration",
   "acronym": "GSA",
+  "category": "optional",
   "website": "https://gsa.gov/",
   "codeUrl": "https://gsa.gov/code.json"
 }, {
   "id": 20,
   "name": "National Science Foundation",
   "acronym": "NSF",
+  "category": "optional",
   "website": "https://nsf.gov/",
   "codeUrl": "https://nsf.gov/code.json"
 }, {
   "id": 21,
   "name": "Nuclear Regulatory Commission",
   "acronym": "NRC",
+  "category": "optional",
   "website": "https://www.nrc.gov/",
   "codeUrl": "https://www.nrc.gov/code.json"
 }, {
   "id": 22,
   "name": "Office of Personnel Management",
   "acronym": "OPM",
+  "category": "optional",
   "website": "https://opm.gov/",
   "codeUrl": "https://opm.gov/code.json"
 }, {
   "id": 23,
   "name": "Small Business Administration",
   "acronym": "SBA",
+  "category": "optional",
   "website": "https://sba.gov/",
   "codeUrl": "https://sba.gov/code.json"
 },{
   "id": 24,
   "name": "National Archives",
   "acronym": "NARA",
+  "category": "optional",
   "website": "https://archives.gov/",
   "codeUrl": "https://archives.gov/code.json"
 },
@@ -147,6 +171,7 @@
   "id": 25,
   "name": "Consumer Financial Protection Bureau",
   "acronym": "CFPB",
+  "category": "optional",
   "website": "https://consumerfinance.gov/",
   "codeUrl": "https://consumerfinance.gov/code.json"
 },
@@ -154,6 +179,7 @@
   "id": 26,
   "name": "White House - Executive Office of the President",
   "acronym": "EOP",
+  "category": "optional",
   "website": "https://whitehouse.gov/",
   "codeUrl": "https://whitehouse.gov/code.json"
 },
@@ -161,6 +187,7 @@
   "id": 27,
   "name": "Social Security Administration",
   "acronym": "SSA",
+  "category": "optional",
   "website": "https://www.ssa.gov",
   "codeUrl": "https://www.ssa.gov/code.json"
 },
@@ -168,6 +195,7 @@
   "id": 28,
   "name": "Department of Homeland Security",
   "acronym": "DHS",
+  "category": "optional",
   "website": "https://www.dhs.gov",
   "codeUrl": "https://www.dhs.gov/code.json"
 }]
